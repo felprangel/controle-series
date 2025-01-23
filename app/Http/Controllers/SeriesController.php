@@ -29,11 +29,9 @@ class SeriesController extends Controller
         return Redirect::to(route('series.index'));
     }
 
-    public function destroy() {
-        $id = Request::route('series');
-
-        Serie::destroy($id);
-        Session::flash('message', "Série removida com sucesso");
+    public function destroy(Serie $series) {
+        $series->delete();
+        Session::flash('message', "Série '{$series->name}' removida com sucesso");
 
         return Redirect::to(route('series.index'));
     }

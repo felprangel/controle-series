@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Serie;
-use Illuminate\Http\Request as HttpRequest;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Request;
 
@@ -27,8 +26,10 @@ class SeriesController extends Controller
         return Redirect::to(route('series.index'));
     }
 
-    public function destroy(HttpRequest $request) {
-        Serie::destroy($request->id);
+    public function destroy() {
+        $id = Request::route('series');
+
+        Serie::destroy($id);
 
         return Redirect::to(route('series.index'));
     }

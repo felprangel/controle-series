@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Request;
 
 class SeriesController extends Controller
 {
@@ -18,5 +19,11 @@ class SeriesController extends Controller
 
     public function create() {
         return view('series.create');
+    }
+
+    public function store() {
+        $nomeSerie = Request::input('nome');
+
+        DB::insert("INSERT INTO series (nome) VALUES (:nome)", ['nome' => $nomeSerie]);
     }
 }

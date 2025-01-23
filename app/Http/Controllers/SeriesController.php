@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Serie;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Request;
@@ -9,7 +10,7 @@ use Illuminate\Support\Facades\Request;
 class SeriesController extends Controller
 {
     public function index() {
-        $series = DB::select("SELECT series.name FROM series");
+        $series = Serie::all();
 
         return view('series.index')->with('series', $series);
     }

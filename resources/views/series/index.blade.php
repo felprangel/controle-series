@@ -9,6 +9,7 @@
     <ul>
         @foreach ($series as $serie)
         <li>{{ $serie->name }}
+            <a href="{{ route('series.edit', $serie->id) }}">Editar</a>
             <form action={{ route('series.destroy', $serie->id) }} method="POST">
                 @csrf
                 @method('DELETE')

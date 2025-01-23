@@ -22,8 +22,8 @@ class SeriesController extends Controller
     }
 
     public function store() {
-        $nomeSerie = Request::input('nome');
+        $serieName = Request::input('name');
 
-        DB::insert("INSERT INTO series (name) VALUES (:nome)", ['nome' => $nomeSerie]);
+        DB::insert("INSERT INTO series (name) VALUES (:name)", ['name' => $serieName]);
     }
 }

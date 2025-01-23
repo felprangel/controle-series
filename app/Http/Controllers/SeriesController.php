@@ -32,6 +32,14 @@ class SeriesController extends Controller
         return view('series.edit')->with('series', $series);
     }
 
+    public function update(Serie $series) {
+        $data = Request::all();
+
+        $series->update($data);
+
+        return Redirect::to(route('series.index'))->with('message', "Série '{$series->name}' atualizada com sucesso");
+    }
+
     public function destroy(Serie $series) {
         $series->delete();
 

@@ -1,5 +1,5 @@
 <x-layout title="Séries">
-    <a href="/series/criar">Adicionar</a>
+    <a href="{{ route('series.create') }}">Adicionar</a>
     <ul>
         @foreach ($series as $serie)
         <li>{{ $serie->name }}</li>

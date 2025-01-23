@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SeriesFormRequest;
 use App\Models\Serie;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Request;
@@ -20,11 +21,8 @@ class SeriesController extends Controller
         return view('series.create');
     }
 
-    public function store() {
-        Request::validate(['name' => ['required', 'min:3']]);
-        $data = Request::all();
-
-        $series = Serie::create($data);
+    public function store(SeriesFormRequest $request) {
+        $series = Serie::create($request->all());
 
         return Redirect::to(route('series.index'))->with('message', "Série '{$series->name}' criada com sucesso");
     }
@@ -33,10 +31,9 @@ class SeriesController extends Controller
         return view('series.edit')->with('series', $series);
     }
 
-    public function update(Serie $series) {
-        $data = Request::all();
-
-        $series->update($data);
+    public function update(Serie $series, SeriesFormRequest $request) {
+        $series->fill($request->all());
+        $series->save();
 
         return Redirect::to(route('series.index'))->with('message', "Série '{$series->name}' atualizada com sucesso");
     }

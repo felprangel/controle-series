@@ -23,9 +23,9 @@ class SeriesController extends Controller
     public function store() {
         $data = Request::all();
 
-        $serie = Serie::create($data);
+        $series = Serie::create($data);
 
-        return Redirect::to(route('series.index'))->with('message', "Série '{$serie->name}' criada com sucesso");
+        return Redirect::to(route('series.index'))->with('message', "Série '{$series->name}' criada com sucesso");
     }
 
     public function edit(Serie $series) {

@@ -24,6 +24,7 @@ class SeriesController extends Controller
         $data = Request::all();
 
         Serie::create($data);
+        Session::flash('message', "Série criada com sucesso");
 
         return Redirect::to(route('series.index'));
     }

@@ -20,6 +20,10 @@ class SeriesController extends Controller
         return view('series.create');
     }
 
+    public function edit(Serie $series) {
+        return view('series.edit')->with('series', $series);
+    }
+
     public function store() {
         $data = Request::all();
 

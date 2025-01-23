@@ -21,6 +21,7 @@ class SeriesController extends Controller
     }
 
     public function store() {
+        Request::validate(['name' => ['required', 'min:3']]);
         $data = Request::all();
 
         $series = Serie::create($data);

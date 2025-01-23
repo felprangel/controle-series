@@ -8,11 +8,7 @@ use Illuminate\Support\Facades\Request;
 class SeriesController extends Controller
 {
     public function index() {
-        $series = [
-            'Breaking Bad',
-            'Game of Thrones',
-            'Arcane'
-        ];
+        $series = DB::select("SELECT series.name FROM series");
 
         return view('series.index')->with('series', $series);
     }

@@ -5,6 +5,7 @@
         <li>{{ $serie->name }}
             <form action={{ route('series.destroy', $serie->id) }} method="POST">
                 @csrf
+                @method('DELETE')
                 <button type="submit">X</button>
             </form>
         </li>

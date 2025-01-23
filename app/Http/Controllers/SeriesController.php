@@ -20,16 +20,16 @@ class SeriesController extends Controller
         return view('series.create');
     }
 
-    public function edit(Serie $series) {
-        return view('series.edit')->with('series', $series);
-    }
-
     public function store() {
         $data = Request::all();
 
         $serie = Serie::create($data);
 
         return Redirect::to(route('series.index'))->with('message', "Série '{$serie->name}' criada com sucesso");
+    }
+
+    public function edit(Serie $series) {
+        return view('series.edit')->with('series', $series);
     }
 
     public function destroy(Serie $series) {

@@ -25,4 +25,12 @@ class SeriesFormRequest extends FormRequest
             'name' => ['required', 'min:3']
         ];
     }
+
+    public function messages(): array
+    {
+        return [
+            'name.required' => 'O campo nome é obrigatório',
+            'name.min' => 'O campo nome precisa ter pelo menos 3 caracteres'
+        ];
+    }
 }

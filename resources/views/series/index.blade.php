@@ -2,7 +2,12 @@
     <a href="{{ route('series.create') }}">Adicionar</a>
     <ul>
         @foreach ($series as $serie)
-        <li>{{ $serie->name }}</li>
+        <li>{{ $serie->name }}
+            <form action={{ route('series.destroy', $serie->id) }} method="POST">
+                @csrf
+                <button type="submit">X</button>
+            </form>
+        </li>
         @endforeach
     </ul>
 </x-layout>

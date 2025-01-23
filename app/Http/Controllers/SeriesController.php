@@ -23,6 +23,6 @@ class SeriesController extends Controller
 
         Serie::create($data);
 
-        return Redirect::to('/series');
+        return Redirect::to(route('series.index'));
     }
 }

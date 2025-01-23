@@ -23,6 +23,6 @@ class SeriesController extends Controller
 
         DB::insert("INSERT INTO series (name) VALUES (:name)", ['name' => $serieName]);
 
-        Redirect::to('/series');
+        return Redirect::to('/series');
     }
 }

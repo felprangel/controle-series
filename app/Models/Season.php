@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Season extends Model
 {
     public function series() {
-        return $this->belongsTo(Serie::class);
+        return $this->belongsTo(Serie::class, 'series_id');
     }
 
     public function episodes() {

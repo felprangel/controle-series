@@ -1,4 +1,4 @@
-<x-layout title="Séries">
+<x-layout title="Temporadas">
     <ul>
         @foreach ($seasons as $season)
         <li>Temporada {{ $season->number }}

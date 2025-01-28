@@ -8,7 +8,7 @@
     @endisset
     <ul>
         @foreach ($series as $serie)
-        <li>{{ $serie->name }}
+        <li><a href="{{ route('seasons.index', $serie->id) }}">{{ $serie->name }}</a>
             <a href="{{ route('series.edit', $serie->id) }}">Editar</a>
             <form action={{ route('series.destroy', $serie->id) }} method="POST">
                 @csrf

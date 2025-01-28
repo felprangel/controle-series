@@ -8,7 +8,7 @@ class Serie extends Model
 {
     protected $fillable = ['name'];
 
-    public function season() {
+    public function seasons() {
         return $this->hasMany(Season::class);
     }
 }

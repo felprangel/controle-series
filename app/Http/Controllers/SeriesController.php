@@ -12,14 +12,16 @@ use Illuminate\Support\Facades\Session;
 
 class SeriesController extends Controller
 {
-    public function index() {
+    public function index()
+    {
         $series = Serie::all();
         $successMessage = Session::get('message');
 
         return view('series.index')->with('series', $series)->with('successMessage', $successMessage);
     }
 
-    public function create() {
+    public function create()
+    {
         return view('series.create');
     }
 
@@ -34,7 +36,7 @@ class SeriesController extends Controller
         Season::insert($seasons);
 
         $episodes = [];
-        foreach($series->seasons as $season) {
+        foreach ($series->seasons as $season) {
             for ($j = 1; $j <= $request->episodes; $j++) {
                 $episodes[] = ['season_id' => $season->id, 'number' => $j];
             }
@@ -44,18 +46,21 @@ class SeriesController extends Controller
         return Redirect::to(route('series.index'))->with('message', "Série '{$series->name}' criada com sucesso");
     }
 
-    public function edit(Serie $series) {
+    public function edit(Serie $series)
+    {
         return view('series.edit')->with('series', $series);
     }
 
-    public function update(Serie $series, SeriesFormRequest $request) {
+    public function update(Serie $series, SeriesFormRequest $request)
+    {
         $series->fill($request->all());
         $series->save();
 
         return Redirect::to(route('series.index'))->with('message', "Série '{$series->name}' atualizada com sucesso");
     }
 
-    public function destroy(Serie $series) {
+    public function destroy(Serie $series)
+    {
         $series->delete();
 
         return Redirect::to(route('series.index'))->with('message', "Série '{$series->name}' removida com sucesso");

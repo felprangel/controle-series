@@ -2,7 +2,7 @@
     <ul>
         @foreach ($episodes as $episode)
         <li>
-            Temporada {{ $episode->number }}
+            Episódio {{ $episode->number }}
         </li>
         @endforeach
     </ul>

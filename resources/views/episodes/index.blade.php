@@ -1,13 +1,16 @@
 <x-layout title="Episódios">
-    <ul>
-        @foreach ($episodes as $episode)
-        <li>
-            Episódio {{ $episode->number }}
-        </li>
+    <form method="post">
+        @csrf
+        <ul>
+            @foreach ($episodes as $episode)
+            <li>
+                Episódio {{ $episode->number }}
+            </li>
 
-        <input type="checkbox" name="episodes[]" value="{{ $episode->id }}" @if ($episode->watched) checked @endif>
-        @endforeach
-    </ul>
+            <input type="checkbox" name="episodes[]" value="{{ $episode->id }}" @if ($episode->watched) checked @endif>
+            @endforeach
+        </ul>
 
-    <button>Salvar</button>
+        <button type="submit">Salvar</button>
+    </form>
 </x-layout>

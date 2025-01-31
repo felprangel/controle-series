@@ -8,7 +8,7 @@ use App\Models\Season;
 use App\Models\Serie;
 use Illuminate\Support\Facades\DB;
 
-class SeriesRepository
+class EloquentSeriesRepository
 {
     public function add(SeriesFormRequest $request): Serie
     {

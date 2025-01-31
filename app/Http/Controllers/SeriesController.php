@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\SeriesFormRequest;
 use App\Models\Serie;
-use App\Repositories\SeriesRepository;
+use App\Repositories\EloquentSeriesRepository;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 
@@ -23,7 +23,7 @@ class SeriesController extends Controller
         return view('series.create');
     }
 
-    public function store(SeriesFormRequest $request, SeriesRepository $repository)
+    public function store(SeriesFormRequest $request, EloquentSeriesRepository $repository)
     {
         $series = $repository->add($request);
         return Redirect::to(route('series.index'))->with('message', "Série '{$series->name}' criada com sucesso");

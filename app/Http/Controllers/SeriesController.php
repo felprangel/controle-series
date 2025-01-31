@@ -6,6 +6,7 @@ use App\Http\Requests\SeriesFormRequest;
 use App\Models\Episode;
 use App\Models\Season;
 use App\Models\Serie;
+use App\Repositories\SeriesRepository;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Request;
@@ -26,27 +27,9 @@ class SeriesController extends Controller
         return view('series.create');
     }
 
-    public function store(SeriesFormRequest $request)
+    public function store(SeriesFormRequest $request, SeriesRepository $repository)
     {
-        DB::beginTransaction();
-        $series = Serie::create($request->all());
-
-        $seasons = [];
-        for ($i = 1; $i <= $request->seasons; $i++) {
-            $seasons[] = ['serie_id' => $series->id, 'number' => $i];
-        }
-
-        Season::insert($seasons);
-
-        $episodes = [];
-        foreach ($series->seasons as $season) {
-            for ($j = 1; $j <= $request->episodes; $j++) {
-                $episodes[] = ['season_id' => $season->id, 'number' => $j];
-            }
-        }
-
-        Episode::insert($episodes);
-        DB::commit();
+        $series = $repository->add($request);
         return Redirect::to(route('series.index'))->with('message', "Série '{$series->name}' criada com sucesso");
     }
 

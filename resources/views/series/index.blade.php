@@ -1,11 +1,6 @@
 <x-layout title="Séries">
     <a href="{{ route('series.create') }}">Adicionar</a>
 
-    @isset($successMessage)
-        <div class="alert alert-success">
-            {{ $successMessage }}
-        </div>
-    @endisset
     <ul>
         @foreach ($series as $serie)
         <li><a href="{{ route('seasons.index', $serie->id) }}">{{ $serie->name }}</a>

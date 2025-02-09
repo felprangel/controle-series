@@ -23,6 +23,6 @@ class EpisodesController extends Controller
 
         $season->push();
 
-        return Redirect::to(route('episodes.index', $season->id));
+        return Redirect::to(route('episodes.index', $season->id))->with('successMessage', 'Episódios marcados como assistidos');;
     }
 }

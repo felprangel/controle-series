@@ -1,4 +1,4 @@
-<x-layout title="Séries">
+<x-layout title="Séries" :successMessage="$successMessage">
     <a href="{{ route('series.create') }}">Adicionar</a>
 
     <ul>

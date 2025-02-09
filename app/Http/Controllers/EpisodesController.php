@@ -11,7 +11,7 @@ class EpisodesController extends Controller
 {
     public function index(Season $season)
     {
-        return view('episodes.index')->with('episodes', $season->episodes);
+        return view('episodes.index', ['episodes' => $season->episodes, 'successMessage' => session('successMessage')]);
     }
 
     public function update(Season $season)

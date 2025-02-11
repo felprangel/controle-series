@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EpisodesController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SeasonsController;
 use App\Http\Controllers\SeriesController;
 use Illuminate\Support\Facades\Route;
@@ -11,3 +12,5 @@ Route::get('/series/{series}/seasons', [SeasonsController::class, 'index'])->nam
 
 Route::get('/seasons/{season}/episodes', [EpisodesController::class, 'index'])->name('episodes.index');
 Route::post('/seasons/{season}/episodes', [EpisodesController::class, 'update'])->name('episodes.update');
+
+Route::get('/login', [LoginController::class, 'login'])->name('login');

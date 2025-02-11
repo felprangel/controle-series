@@ -6,8 +6,8 @@ use App\Http\Requests\SeriesFormRequest;
 use App\Models\Episode;
 use App\Models\Season;
 use App\Models\Serie;
+use App\Repositories\SeriesRepository;
 use Illuminate\Support\Facades\DB;
-use SeriesRepository;
 
 class EloquentSeriesRepository implements SeriesRepository
 {

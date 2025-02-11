@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\SeriesFormRequest;
 use App\Models\Serie;
+use App\Repositories\SeriesRepository;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
-use SeriesRepository;
 
 class SeriesController extends Controller
 {

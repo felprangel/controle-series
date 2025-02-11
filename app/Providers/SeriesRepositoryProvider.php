@@ -3,8 +3,8 @@
 namespace App\Providers;
 
 use App\Repositories\EloquentSeriesRepository;
+use App\Repositories\SeriesRepository;
 use Illuminate\Support\ServiceProvider;
-use SeriesRepository;
 
 class SeriesRepositoryProvider extends ServiceProvider
 {

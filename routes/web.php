@@ -13,4 +13,4 @@ Route::get('/series/{series}/seasons', [SeasonsController::class, 'index'])->nam
 Route::get('/seasons/{season}/episodes', [EpisodesController::class, 'index'])->name('episodes.index');
 Route::post('/seasons/{season}/episodes', [EpisodesController::class, 'update'])->name('episodes.update');
 
-Route::get('/login', [LoginController::class, 'login'])->name('login');
+Route::get('/login', [LoginController::class, 'login'])->name('login.index');

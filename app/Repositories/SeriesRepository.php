@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Repositories;
+
 use App\Http\Requests\SeriesFormRequest;
 use App\Models\Serie;
 

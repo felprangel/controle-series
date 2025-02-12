@@ -14,6 +14,10 @@ class LoginController extends Controller
 
     public function store()
     {
-        dd(Auth::attempt(Request::only(['email', 'password'])));
+        if (!Auth::attempt(Request::only(['email', 'password']))) {
+            return redirect()
+                ->back()
+                ->withErrors('Usuário e/ou senha incorretos');
+        };
     }
 }

@@ -14,6 +14,6 @@ class LoginController extends Controller
 
     public function store()
     {
-        dd(Auth::attempt(Request::all()));
+        dd(Auth::attempt(Request::only(['email', 'password'])));
     }
 }

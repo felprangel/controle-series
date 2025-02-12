@@ -7,4 +7,6 @@
         <input type="password" name="password" required >
         <button type="submit">Entrar</button>
     </form>
+
+    <a href="{{ route('users.create') }}">Registrar</a>
 </x-layout>

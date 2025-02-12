@@ -1,5 +1,5 @@
 <x-layout title="Novo Usuário" >
-    <form method="post" action="{{ route('login.store') }}">
+    <form method="post" action="{{ route('users.store') }}">
         @csrf
         <label for="email">Email</label>
         <input type="email" name="email" required >

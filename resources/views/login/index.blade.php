@@ -1,5 +1,5 @@
 <x-layout title="Login" >
-    <form method="post">
+    <form method="post" action="{{ route('login.store') }}">
         @csrf
         <label for="email">Email</label>
         <input type="email" name="email" required >

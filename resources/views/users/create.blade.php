@@ -7,6 +7,6 @@
         <input type="email" name="email" required >
         <label for="password">Password</label>
         <input type="password" name="password" required >
-        <button type="submit">Entrar</button>
+        <button type="submit">Registrar</button>
     </form>
 </x-layout>

@@ -9,6 +9,14 @@
     @auth
         <nav><a href="{{ route('logout')}}">logout</a></nav>
     @endauth
+
+    @guest
+        <nav>
+            <a href="{{ route('login') }}">login</a>
+            <a href="{{ route('users.create') }}">register</a>
+        </nav>
+    @endguest
+
     <h1>{{ $title }}</h1>
 
     @isset($successMessage)

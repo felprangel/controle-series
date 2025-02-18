@@ -6,7 +6,9 @@
     <title>{{ $title }}</title>
 </head>
 <body>
-    <nav><a href="{{ route('logout')}}">logout</a></nav>
+    @auth
+        <nav><a href="{{ route('logout')}}">logout</a></nav>
+    @endauth
     <h1>{{ $title }}</h1>
 
     @isset($successMessage)

@@ -5,11 +5,19 @@ namespace App\Http\Controllers;
 use App\Http\Requests\SeriesFormRequest;
 use App\Models\Serie;
 use App\Repositories\SeriesRepository;
+use Illuminate\Auth\Middleware\Authenticate;
+use Illuminate\Routing\Controllers\HasMiddleware;
+use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 
-class SeriesController extends Controller
+class SeriesController extends Controller implements HasMiddleware
 {
+    public static function middleware()
+    {
+        return [new Middleware(Authenticate::class, except: ['index'])];
+    }
+
     public function index()
     {
         $series = Serie::all();

@@ -19,6 +19,8 @@ class LoginController extends Controller
                 ->back()
                 ->withErrors('Usuário e/ou senha incorretos');
         };
+
+        return redirect()->route('series.index');
     }
 
     public function logout()

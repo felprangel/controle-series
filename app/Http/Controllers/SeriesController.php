@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\SeriesFormRequest;
+use App\Mail\SeriesCreated;
 use App\Models\Serie;
 use App\Repositories\SeriesRepository;
 use Illuminate\Auth\Middleware\Authenticate;
 use Illuminate\Routing\Controllers\HasMiddleware;
 use Illuminate\Routing\Controllers\Middleware;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 
@@ -34,6 +37,10 @@ class SeriesController extends Controller implements HasMiddleware
     public function store(SeriesFormRequest $request, SeriesRepository $repository)
     {
         $series = $repository->add($request);
+
+        $email = new SeriesCreated($series->name, $series->id);
+        Mail::to(Auth::user())->send($email);
+
         return Redirect::to(route('series.index'))->with('message', "Série '{$series->name}' criada com sucesso");
     }
 

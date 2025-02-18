@@ -20,4 +20,11 @@ class LoginController extends Controller
                 ->withErrors('Usuário e/ou senha incorretos');
         };
     }
+
+    public function logout()
+    {
+        Auth::logout();
+
+        return redirect()->route('login');
+    }
 }

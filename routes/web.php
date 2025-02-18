@@ -21,11 +21,6 @@ Route::middleware(Authenticate::class)->group(function () {
     Route::post('/seasons/{season}/episodes', [EpisodesController::class, 'update'])->name('episodes.update');
 });
 
-Route::get('/email', function () {
-    return new SeriesCreated();
-});
-
-
 Route::get('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/login', [LoginController::class, 'store'])->name('login.store');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');

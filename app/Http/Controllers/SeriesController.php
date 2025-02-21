@@ -39,7 +39,7 @@ class SeriesController extends Controller implements HasMiddleware
         $series = $repository->add($request);
 
         $email = new SeriesCreated($series->name, $series->id);
-        Mail::to(Auth::user())->send($email);
+        Mail::to(Auth::user())->queue($email);
 
         return Redirect::to(route('series.index'))->with('message', "Série '{$series->name}' criada com sucesso");
     }
